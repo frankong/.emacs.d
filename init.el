@@ -6,7 +6,11 @@
    t)
   (package-initialize))
 
-					; Load machine dependent init file
+;; Personal information
+(setq user-full-name "Frank Ong"
+      user-mail-address "frankongh@gmail.com")
+
+; Load machine dependent init file
 (cond
  (
   (file-exists-p "~/.emacs.d/init_custom.el")
@@ -21,5 +25,8 @@
 ; Load user interface init file
 (load "~/.emacs.d/init_ui.el")
 
-; Load code tool related init file
+; Load editor related init file
+(load "~/.emacs.d/init_edit.el")
+
+; Load tool related init file
 (load "~/.emacs.d/init_tools.el")
