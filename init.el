@@ -25,8 +25,5 @@
 ; Load user interface init file
 (load "~/.emacs.d/init_ui.el")
 
-; Load editor related init file
-(load "~/.emacs.d/init_edit.el")
-
 ; Load tool related init file
 (load "~/.emacs.d/init_tools.el")

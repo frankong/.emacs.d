@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except init files
+!init*.el
+!.gitignore
+
+# But also ignore custom files
+init_custom.el

@@ -1,10 +1,10 @@
-; User-interface
+;; User-interface
 
-; Set C indent to 8
+;; Set C indent to 8
 (setq c-default-style "k&r"
       c-basic-offset 8)
 
-; Disable toolbar, scrollbar and menubar
+;; Disable toolbar, scrollbar and menubar
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -12,21 +12,8 @@
 ;; Change "Yes or no" to "y or n"
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(defun tabbar-buffer-groups ()
-  (list
-   (cond
-    ((string-equal "*" (substring (buffer-name) 0 1))
-     "Emacs Buffer"
-     )
-    ((eq major-mode 'dired-mode)
-     "Dired"
-     )
-    (t
-     "User Buffer"
-     )
-    ))) 
 
-; Use Tabbar
+;; Use Tabbar
 (use-package tabbar
 	     :ensure t
 	     :config
@@ -39,3 +26,4 @@
 		   'tabbar-buffer-groups
 		   )
 	     )
+(load "~/.emacs.d/init_tabbar.el")
