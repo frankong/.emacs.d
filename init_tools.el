@@ -1,5 +1,9 @@
 ;;; Tools
 
+;; Switch header / source
+(global-set-key (kbd "C-x o") 'ff-find-other-file)
+(global-set-key (kbd "C-x C-o") 'ff-find-other-file)
+
 (use-package winner
   :ensure t
   :defer t)
@@ -108,11 +112,11 @@
 ;; Example
 ;; for -> for( i = 0 ... )
 ;; main -> int main () {}
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1)
-  )
+;; (use-package yasnippet
+;;   :ensure t
+;;   :config
+;;   (yas-global-mode 1)
+;;   )
 
 ;; Refactor variable in file
 ;; C-; on variable

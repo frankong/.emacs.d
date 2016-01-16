@@ -24,7 +24,7 @@
 	     (bind-key "M-<left>" 'tabbar-backward)
 	     (bind-key "M-<right>" 'tabbar-forward)
 	     (bind-key "S-M-<left>" 'tabbar-backward-group)
-	     (bind-key "S-M-<right>" 'tabbar-forward-group)
+	     (bind-key "S-M-<right>" 'tabbar-forward-group) 
 	     (setq tabbar-buffer-groups-function
 		   'tabbar-buffer-groups
 		   )
