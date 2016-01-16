@@ -4,10 +4,13 @@
 (setq c-default-style "k&r"
       c-basic-offset 8)
 
-;; Disable toolbar, scrollbar and menubar
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;; Disable toolbar, scrollbar, menubar, and mode line
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 (menu-bar-mode -1)
+(setq-default mode-line-format nil) 
 
 ;; Change "Yes or no" to "y or n"
 (fset 'yes-or-no-p 'y-or-n-p)

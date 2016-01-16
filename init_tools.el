@@ -1,15 +1,33 @@
-; Tools
+;;; Tools
 
 (use-package winner
   :ensure t
   :defer t)
 
-(use-package auto-complete
+;; Save recent files
+(use-package recentf
   :ensure t
   :config
-  (global-auto-complete-mode t)
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 100)
   )
 
+;; Save history after close
+(use-package savehist
+  :ensure t
+  :config
+  (savehist-mode 1))
+
+;; Auto complete anything
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode t)
+  (setq company-idle-delay 0.25
+	company-auto-complete t)
+  )
+
+;; Git repo integration
 (use-package magit
   :ensure t
   :config
@@ -17,6 +35,8 @@
 	 ("C-c C-g" . magit-status))
   )
 
+;; Undo and redo in the natural way
+;; C-c u to open undo tree
 (use-package undo-tree
   :ensure t
   :config
@@ -29,7 +49,7 @@
 	 )
   )
 
-
+;; Replace emacs buffer with Helm version
 (use-package helm
   :ensure t
   :diminish helm-mode
@@ -47,10 +67,15 @@
          ("C-x b" . helm-mini)
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files) 
+	 ("C-x C-f" . helm-find-files)
+	 ;("C-c o" . helm-occur)
+	 ;("C-c C-o" . helm-occur)
 	 )
   )
 
+;; Use Helm with gtags
+;; M-. on variable to go to function
+;; M-, to go back
 (use-package helm-gtags
   :ensure t
   :init
@@ -65,3 +90,58 @@
 	 ("M-," . helm-gtags-pop-stack)
 	 )
   )
+
+;; Auto close parenthesis
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-mode t))
+
+;; Check code syntax 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode 1)
+  )
+
+;; Expand code snippet to real code
+;; Example
+;; for -> for( i = 0 ... )
+;; main -> int main () {}
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  )
+
+;; Refactor variable in file
+;; C-; on variable
+(use-package iedit
+  :ensure t
+  )
+
+;; Understand C/C++ semantics to autocomplete
+(use-package semantic
+  :ensure t
+  :config
+  (semantic-mode 1)
+  )
+
+;; Projectile
+;; C-c p p Find files in projects
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode 1)
+  (setq projectile-enable-caching t)
+  )
+
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on)
+  )
+
+
+(provide 'init_tools)
+;;; init_tools.el ends here

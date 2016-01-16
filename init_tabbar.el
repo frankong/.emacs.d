@@ -54,7 +54,8 @@ That is, a string used to represent it on the tab bar."
 (defun tabbar-buffer-groups ()
   (list
    (cond
-    ((string-equal "*" (substring (buffer-name) 0 1))
+    ((or (string= "*" (substring (buffer-name) 0 1))
+	 (string= "TAGS" (buffer-name)))
      "Emacs Buffer"
      )
     ((eq major-mode 'dired-mode)
