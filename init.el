@@ -24,8 +24,14 @@
 ;; Load user interface init file
 (load "~/.emacs.d/init_ui.el")
 
+
+;; Load setting related init file
+(load "~/.emacs.d/init_settings.el")
+
+
 ;; Load tool related init file
 (load "~/.emacs.d/init_tools.el")
+
 
 ;; References
 ;; http://aaronbedra.com/emacs.d/

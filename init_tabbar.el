@@ -1,19 +1,19 @@
 ;; Tabbar settings
 (set-face-attribute
  'tabbar-default nil
- :background "gray20"
- :foreground "gray20"
- :box '(:line-width 1 :color "gray20" :style nil))
-(set-face-attribute
- 'tabbar-unselected nil
- :background "gray30"
- :foreground "white"
- :box '(:line-width 5 :color "gray30" :style nil))
+ :background "gray90"
+ :foreground "gray90"
+ :box '(:line-width 1 :color "gray90" :style nil))
 (set-face-attribute
  'tabbar-selected nil
- :background "gray75"
+ :background "white"
  :foreground "black"
- :box '(:line-width 5 :color "gray75" :style nil))
+ :box '(:line-width 5 :color "white" :style nil))
+(set-face-attribute
+ 'tabbar-unselected nil
+ :background "gray90"
+ :foreground "black"
+ :box '(:line-width 5 :color "gray90" :style nil))
 (set-face-attribute
  'tabbar-highlight nil
  :background "white"
@@ -22,10 +22,10 @@
  :box '(:line-width 5 :color "white" :style nil))
 (set-face-attribute
  'tabbar-button nil
- :box '(:line-width 1 :color "gray20" :style nil))
+ :box '(:line-width 1 :color "gray90" :style nil))
 (set-face-attribute
  'tabbar-separator nil
- :background "gray20"
+ :background "gray90"
  :height 0.6)
 
 
@@ -55,7 +55,7 @@ That is, a string used to represent it on the tab bar."
   (list
    (cond
     ((or (string= "*" (substring (buffer-name) 0 1))
-	 (string= "TAGS" (buffer-name)))
+	 (string= "TAGS" (substring (buffer-name) 0 4)))
      "Emacs Buffer"
      )
     ((eq major-mode 'dired-mode)

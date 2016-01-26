@@ -1,9 +1,5 @@
 ;;; Tools
 
-;; Switch header / source
-(global-set-key (kbd "C-x o") 'ff-find-other-file)
-(global-set-key (kbd "C-x C-o") 'ff-find-other-file)
-
 (use-package winner
   :ensure t
   :defer t)
@@ -12,8 +8,8 @@
 (use-package recentf
   :ensure t
   :config
-  (recentf-mode 1)
   (setq recentf-max-menu-items 100)
+  (recentf-mode 1)
   )
 
 ;; Save history after close
@@ -27,8 +23,8 @@
   :ensure t
   :config
   (global-company-mode t)
-  (setq company-idle-delay 0.25
-	company-auto-complete t)
+;  (setq company-idle-delay 0.25
+;	company-auto-complete t)
   )
 
 ;; Git repo integration
@@ -43,11 +39,12 @@
 ;; C-c u to open undo tree
 (use-package undo-tree
   :ensure t
-  :config
-  (progn
-    (global-undo-tree-mode t)
-    (setq undo-tree-visualizer-timestamps t))
+  :config 
+  (global-undo-tree-mode t)
+  (setq undo-tree-visualizer-timestamps t)
   :bind (
+	 ("C-_" . undo-tree-undo)
+	 ("M-_" . undo-tree-redo)
 	 ("C-c u" . undo-tree-visualize)
 	 ("C-c C-u" . undo-tree-visualize)
 	 )
@@ -76,6 +73,10 @@
 	 ;("C-c C-o" . helm-occur)
 	 )
   )
+
+
+(load "~/.emacs.d/init_helm.el")
+
 
 ;; Use Helm with gtags
 ;; M-. on variable to go to function
@@ -112,11 +113,11 @@
 ;; Example
 ;; for -> for( i = 0 ... )
 ;; main -> int main () {}
-;; (use-package yasnippet
-;;   :ensure t
-;;   :config
-;;   (yas-global-mode 1)
-;;   )
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  )
 
 ;; Refactor variable in file
 ;; C-; on variable
@@ -136,8 +137,9 @@
 (use-package projectile
   :ensure t
   :config
-  (projectile-global-mode 1)
   (setq projectile-enable-caching t)
+  (setq projectile-require-project-root nil)
+  (projectile-global-mode 1)
   )
 
 (use-package helm-projectile
@@ -146,6 +148,7 @@
   (helm-projectile-on)
   )
 
+(require 'tex)
 
 (provide 'init_tools)
 ;;; init_tools.el ends here
