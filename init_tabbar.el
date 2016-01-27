@@ -55,7 +55,8 @@ That is, a string used to represent it on the tab bar."
   (list
    (cond
     ((or (string= "*" (substring (buffer-name) 0 1))
-	 (string= "TAGS" (substring (buffer-name) 0 4)))
+	 (string= "TAGS" (substring (buffer-name) 0 4))
+	 (string= "_" (substring (buffer-name) 0 1)))
      "Emacs Buffer"
      )
     ((eq major-mode 'dired-mode)

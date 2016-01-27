@@ -10,9 +10,14 @@
   kept-old-versions 5    ; and how many of the old
   )
 
+;; Switch buffer
+(global-set-key (kbd "C-x o") 'other-window)
+(global-set-key (kbd "C-x C-o") 'other-window)
+
 ;; Switch header / source
-(global-set-key (kbd "C-x o") 'ff-find-other-file)
-(global-set-key (kbd "C-x C-o") 'ff-find-other-file)
+
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
+(global-set-key (kbd "C-c C-o") 'ff-find-other-file)
 
 
 ;; Set C indent to 8
@@ -30,3 +35,15 @@
 
 ;; Auto refresh files
 (global-auto-revert-mode t)
+
+
+(setq-default TeX-master nil) ; Query for master file.
+
+
+;; Smooth scroll
+(setq scroll-step            1)
+
+
+;; Text size
+(global-set-key (kbd "M-=") 'text-scale-increase)
+(global-set-key (kbd "M--") 'text-scale-decrease)
