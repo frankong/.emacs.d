@@ -61,6 +61,9 @@
 	  helm-M-x-fuzzy-match 1
 	  helm-buffers-fuzzy-matching t
 	  helm-recentf-fuzzy-match    t
+	  helm-split-window-in-side-p t
+	  helm-ff-file-name-history-use-recentf t
+	  helm-minibuffer-history 100
 	  )
     (helm-mode 1))
   :bind (
@@ -113,11 +116,11 @@
 ;; Example
 ;; for -> for( i = 0 ... )
 ;; main -> int main () {}
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1)
-  )
+;; (use-package yasnippet
+;;   :ensure t
+;;   :config
+;;   (yas-global-mode 1)
+;;   )
 
 ;; Refactor variable in file
 ;; C-; on variable
@@ -148,7 +151,20 @@
   (helm-projectile-on)
   )
 
+
+;; Require Auctex
 (require 'tex)
+
+
+;; Flycheck popup
+(use-package flycheck-tip
+  :ensure t
+  :config
+  (flycheck-tip-use-timer 'verbose)
+  )
 
 (provide 'init_tools)
 ;;; init_tools.el ends here
+
+
+
