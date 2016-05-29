@@ -163,6 +163,11 @@
   (flycheck-tip-use-timer 'verbose)
   )
 
+;; CUDA
+(use-package cuda-mode
+  :ensure t
+  )
+
 (provide 'init_tools)
 ;;; init_tools.el ends here
 
