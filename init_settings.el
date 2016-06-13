@@ -30,8 +30,8 @@
 
 
 ;; Full screen
-(define-key global-map [(M-return)] 
-  'toggle-frame-fullscreen)
+;; (define-key global-map [(M-return)] 
+;;   'toggle-frame-fullscreen)
 
 ;; Auto refresh files
 (global-auto-revert-mode t)
@@ -61,6 +61,8 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
+;; Remove minimize
+(global-unset-key (kbd "C-z"))
 
 ;; Movement keys
 ;; (global-unset-key (kbd "C-j"))
@@ -81,3 +83,5 @@
 ;; (global-set-key (kbd "M-l") 'forward-word)
 ;; (global-set-key (kbd "M-k") (kbd "C-u 4 C-k"))
 ;; (global-set-key (kbd "M-i") (kbd "C-u 4 C-i"))
+
+

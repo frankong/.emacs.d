@@ -72,6 +72,7 @@
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
+	 ("C-x r l" . helm-filtered-bookmarks)
 	 ;("C-c o" . helm-occur)
 	 ;("C-c C-o" . helm-occur)
 	 )
@@ -168,8 +169,50 @@
   :ensure t
   )
 
-(provide 'init_tools)
-;;; init_tools.el ends here
+;; Reveal in  finder
+(use-package reveal-in-osx-finder
+  :ensure t
+  )
 
 
+;; JEDI (auto-complete for python)
+;; (use-package jedi
+;;   :ensure t
+;;   :init
+;;   (add-hook 'python-mode-hook 'jedi:setup)
+;;   )
+;; (use-package company-jedi
+;;   :ensure t
+;;   :config
+;;   (progn
+;;     (push 'company-jedi company-backends)
+;;     ;; Disable auto-complete when we start jedi, because we don't want both
+;;     ;; auto-complete and company running
+;;     (add-hook 'jedi-mode-hook (lambda () (auto-complete-mode -1)))
+;;     )
+;;   )
 
+;; Sets the python interpreter to be ipython. To trick emacs into
+;; thinking we're still running regular python, we run ipython in
+;; classic mode.
+;; (setq
+;;  python-shell-interpreter "ipython"
+;;  python-shell-interpreter-args "-i --classic")
+
+
+(use-package markdown-mode
+  :ensure t
+  )
+
+(use-package ein
+  :ensure t
+  :config
+  (setq ein:use-auto-complete 1)
+  )
+
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable)
+  (elpy-use-ipython)
+  )
