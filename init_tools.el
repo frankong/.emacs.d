@@ -154,7 +154,9 @@
 
 
 ;; Require Auctex
-(require 'tex)
+(use-package tex-site
+  :ensure auctex
+  )
 
 
 ;; Flycheck popup
@@ -214,5 +216,5 @@
   :ensure t
   :config
   (elpy-enable)
-  (elpy-use-ipython)
+  (elpy-use-ipython "ipython3")
   )
