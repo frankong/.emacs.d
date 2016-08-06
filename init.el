@@ -19,7 +19,7 @@
  )
 
 ;; Use use-package
-(if (not (package-installed-p 'use-package))
+(unless (package-installed-p 'use-package)
     (package-install 'use-package))
 (require 'use-package)
 
