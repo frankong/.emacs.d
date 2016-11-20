@@ -1,6 +1,10 @@
 ;;; Tools
 
 ;; Smart mode line
+(use-package smart-mode-line-powerline-theme
+  :ensure t
+  )
+
 (use-package smart-mode-line
   :ensure t
   :config
