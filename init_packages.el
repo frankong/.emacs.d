@@ -1,8 +1,13 @@
 ;;; Tools
 
-(use-package winner
+;; Smart mode line
+(use-package smart-mode-line
   :ensure t
-  :defer t)
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (sml/apply-theme 'light-powerline)
+  (sml/setup)
+  )
 
 ;; Save recent files
 (use-package recentf
@@ -30,9 +35,11 @@
 ;; Git repo integration
 (use-package magit
   :ensure t
+  :defer t
   :config
-  :bind (("C-c g" . magit-status)
-	 ("C-c C-g" . magit-status))
+  :bind 
+  ("C-c g" . magit-status)
+  ("C-c C-g" . magit-status)
   )
 
 ;; Undo and redo in the natural way
@@ -77,10 +84,7 @@
 	 ;("C-c C-o" . helm-occur)
 	 )
   )
-
-
 (load "~/.emacs.d/init_helm.el")
-
 
 ;; Use Helm with gtags
 ;; M-. on variable to go to function
@@ -94,17 +98,17 @@
 	)
   :config
   (helm-gtags-mode t)
-  :bind (
-	 ("M-." . helm-gtags-dwim)
-	 ("M-," . helm-gtags-pop-stack)
-	 )
+  :bind
+  ("M-." . helm-gtags-dwim)
+  ("M-," . helm-gtags-pop-stack)
   )
 
 ;; Auto close parenthesis
 (use-package smartparens
   :ensure t
   :config
-  (smartparens-mode t))
+  (smartparens-mode t)
+)
 
 ;; Check code syntax 
 (use-package flycheck
@@ -113,6 +117,12 @@
   (global-flycheck-mode 1)
   )
 
+;; Flycheck popup
+(use-package flycheck-pos-tip
+  :ensure t
+  :config
+  (flycheck-pos-tip-mode 1)
+  )
 
 ;; Refactor variable in file
 ;; C-; on variable
@@ -143,12 +153,10 @@
   (helm-projectile-on)
   )
 
-
 ;; Require Auctex
-(use-package tex-site
+(use-package tex
   :ensure auctex
   )
-
 
 ;; CUDA
 (use-package cuda-mode
@@ -160,19 +168,18 @@
   :ensure t
   )
 
-
+;; Markdown
 (use-package markdown-mode
   :ensure t
   )
 
-;; (use-package ein
-;;   :ensure t
-;;   :config
-;;   (setq ein:use-auto-complete 1)
-;;   )
+;; Anaconda
+(use-package anaconda-mode
+  :ensure t
+  )
 
-;; (use-package elpy
-;;   :ensure t
-;;   :config
-;;   (elpy-enable)
-;;   )
+;; Nose
+(use-package nose
+  :ensure t
+  )
+
