@@ -32,31 +32,4 @@
 
 
 ;; Load tool related init file
-(load "~/.emacs.d/init_tools.el")
-
-
-;; References
-;; http://aaronbedra.com/emacs.d/
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(elpy-disable-backend-error-display nil)
- '(elpy-rpc-python-command "python3")
- '(flycheck-flake8-maximum-line-length 100)
- '(inhibit-startup-screen t)
- '(package-selected-packages
-   (quote
-    (elpy ein markdown-mode reveal-in-osx-finder cuda-mode flycheck-tip use-package undo-tree tabbar smartparens magit iedit helm-projectile helm-gtags flycheck company auctex)))
- '(split-height-threshold 80)
- '(split-width-threshold 0)
- '(tabbar-separator (quote (0.5))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(flymake-errline ((t nil)))
- '(flymake-warnline ((t nil))))
-(put 'erase-buffer 'disabled nil)
+(load "~/.emacs.d/init_packages.el")

@@ -113,15 +113,6 @@
   (global-flycheck-mode 1)
   )
 
-;; Expand code snippet to real code
-;; Example
-;; for -> for( i = 0 ... )
-;; main -> int main () {}
-;; (use-package yasnippet
-;;   :ensure t
-;;   :config
-;;   (yas-global-mode 1)
-;;   )
 
 ;; Refactor variable in file
 ;; C-; on variable
@@ -159,13 +150,6 @@
   )
 
 
-;; Flycheck popup
-(use-package flycheck-tip
-  :ensure t
-  :config
-  (flycheck-tip-use-timer 'verbose)
-  )
-
 ;; CUDA
 (use-package cuda-mode
   :ensure t
@@ -177,43 +161,18 @@
   )
 
 
-;; JEDI (auto-complete for python)
-;; (use-package jedi
-;;   :ensure t
-;;   :init
-;;   (add-hook 'python-mode-hook 'jedi:setup)
-;;   )
-;; (use-package company-jedi
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     (push 'company-jedi company-backends)
-;;     ;; Disable auto-complete when we start jedi, because we don't want both
-;;     ;; auto-complete and company running
-;;     (add-hook 'jedi-mode-hook (lambda () (auto-complete-mode -1)))
-;;     )
-;;   )
-
-;; Sets the python interpreter to be ipython. To trick emacs into
-;; thinking we're still running regular python, we run ipython in
-;; classic mode.
-;; (setq
-;;  python-shell-interpreter "ipython"
-;;  python-shell-interpreter-args "-i --classic")
-
-
 (use-package markdown-mode
   :ensure t
   )
 
-(use-package ein
-  :ensure t
-  :config
-  (setq ein:use-auto-complete 1)
-  )
+;; (use-package ein
+;;   :ensure t
+;;   :config
+;;   (setq ein:use-auto-complete 1)
+;;   )
 
-(use-package elpy
-  :ensure t
-  :config
-  (elpy-enable)
-  )
+;; (use-package elpy
+;;   :ensure t
+;;   :config
+;;   (elpy-enable)
+;;   )
