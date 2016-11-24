@@ -185,5 +185,7 @@
 ;; Nose
 (use-package nose
   :ensure t
+  :config
+  (nose-mode 1)
   )
 
