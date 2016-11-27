@@ -1,15 +1,10 @@
 ;;; Tools
 
-;; Smart mode line
-(use-package smart-mode-line-powerline-theme
-  :ensure t
-  )
-
 (use-package smart-mode-line
   :ensure t
   :config
   (setq sml/no-confirm-load-theme t)
-  (sml/apply-theme 'light-powerline)
+  (sml/apply-theme 'light)
   (sml/setup)
   )
 
@@ -186,6 +181,6 @@
 (use-package nose
   :ensure t
   :config
-  (nose-mode 1)
+  (add-hook 'python-mode-hook (lambda () (nose-mode t)))
   )
 
