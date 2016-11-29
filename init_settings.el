@@ -53,3 +53,7 @@
 
 ;; Python warning for emacs 25
 (setq python-shell-completion-native-enable nil)
+
+;; Mac option key
+(setq mac-option-key-is-meta t)
+

@@ -114,6 +114,7 @@
   :ensure t
   :config
   (global-flycheck-mode 1)
+  (add-to-list 'flycheck-disabled-checkers 'python-pylint)
   )
 
 ;; Flycheck popup
@@ -184,3 +185,10 @@
   (add-hook 'python-mode-hook (lambda () (nose-mode t)))
   )
 
+
+;; Matlab
+(use-package matlab-mode
+  :ensure t
+  :mode
+  (("\\.m\\'" . matlab-mode))
+  )
