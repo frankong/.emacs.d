@@ -192,3 +192,9 @@
   :mode
   (("\\.m\\'" . matlab-mode))
   )
+
+
+;; Yaml
+(use-package yaml-mode
+  :ensure t
+  )
