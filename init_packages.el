@@ -8,14 +8,6 @@
   (sml/setup)
   )
 
-;; Save recent files
-(use-package recentf
-  :ensure t
-  :config
-  (setq recentf-max-menu-items 100)
-  (recentf-mode 1)
-  )
-
 ;; Save history after close
 (use-package savehist
   :ensure t
@@ -26,9 +18,9 @@
 (use-package company
   :ensure t
   :config
+  (setq company-idle-delay 0.25
+	company-auto-complete t)
   (global-company-mode t)
-;  (setq company-idle-delay 0.25
-;	company-auto-complete t)
   )
 
 ;; Git repo integration
@@ -83,7 +75,6 @@
 	 ;("C-c C-o" . helm-occur)
 	 )
   )
-(load "~/.emacs.d/init_helm.el")
 
 ;; Use Helm with gtags
 ;; M-. on variable to go to function
@@ -154,13 +145,25 @@
   )
 
 ;; Require Auctex
-(use-package tex
-  :ensure auctex
-  )
+(use-package auctex
+  :ensure t
+  :mode ("\\.tex\\'" . latex-mode)
+  :commands (latex-mode LaTeX-mode plain-tex-mode)
+  :init
+  (progn
+    (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+    (add-hook 'LaTeX-mode-hook #'flyspell-mode)
+    (add-hook 'LaTeX-mode-hook #'turn-on-reftex)
+    (setq TeX-auto-save t
+	  TeX-parse-self t
+	  TeX-save-query nil
+	  TeX-PDF-mode t)
+    (setq-default TeX-master nil)))
 
 ;; CUDA
 (use-package cuda-mode
   :ensure t
+  :mode "\\.cu\\'"
   )
 
 ;; Reveal in  finder
@@ -171,13 +174,23 @@
 ;; Markdown
 (use-package markdown-mode
   :ensure t
+  :mode "\\.md\\'"
   )
 
 ;; Anaconda
 (use-package anaconda-mode
   :ensure t
-  )
+  :commands anaconda-mode
+  :diminish anaconda-mode
+  :init
+  (progn
+    (add-hook 'python-mode-hook 'anaconda-mode)
+    (add-hook 'python-mode-hook 'eldoc-mode)))
 
+(use-package company-anaconda
+  :ensure t
+  :init (add-to-list 'company-backends 'company-anaconda))
+	    
 ;; Nose
 (use-package nose
   :ensure t
@@ -189,12 +202,12 @@
 ;; Matlab
 (use-package matlab-mode
   :ensure t
-  :mode
-  (("\\.m\\'" . matlab-mode))
+  :mode "\\.m\\'"
   )
 
 
 ;; Yaml
 (use-package yaml-mode
   :ensure t
+  :mode "\\.yml\\'"
   )
