@@ -18,8 +18,6 @@
 (use-package company
   :ensure t
   :config
-  (setq company-idle-delay 0.25
-	company-auto-complete t)
   (global-company-mode t)
   )
 
@@ -56,9 +54,6 @@
   (progn
     (require 'helm-config)
     (setq helm-candidate-number-limit 100
-	  helm-M-x-fuzzy-match 1
-	  helm-buffers-fuzzy-matching t
-	  helm-recentf-fuzzy-match    t
 	  helm-split-window-in-side-p t
 	  helm-ff-file-name-history-use-recentf t
 	  helm-minibuffer-history 100
@@ -135,7 +130,7 @@
   :config
   (setq projectile-enable-caching t)
   (setq projectile-require-project-root nil)
-  (projectile-global-mode 1)
+  (projectile-mode 1)
   )
 
 (use-package helm-projectile
@@ -204,6 +199,15 @@
   :ensure t
   :mode "\\.m\\'"
   )
+
+
+;; Yaml
+(use-package dtrt-indent
+  :ensure t
+  :config
+  (dtrt-indent-mode t)
+  )
+
 
 
 ;; Yaml
