@@ -54,6 +54,11 @@
 ;; Python warning for emacs 25
 (setq python-shell-completion-native-enable nil)
 
-;; Mac option key
-(setq mac-option-key-is-meta t)
+;; Disable popup in mac
+(when (memq window-system '(mac ns x))
+    (setq ns-pop-up-frames nil)
+  )
 
+;; mac switch meta key
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'hyper)
