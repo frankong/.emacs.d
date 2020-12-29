@@ -200,17 +200,23 @@
   )
 
 
-;; Yaml
+;; Indent
 (use-package dtrt-indent
   :ensure t
   :config
   (dtrt-indent-mode t)
   )
 
-
-
 ;; Yaml
 (use-package yaml-mode
   :ensure t
   :mode "\\.yml\\'"
+  )
+
+;; Load PATH from shell for osx
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
   )
