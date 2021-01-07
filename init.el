@@ -9,6 +9,7 @@
 ;; Set package
 (require 'package)
 (setq package-enable-at-startup nil)
+(setq package-check-signature nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
