@@ -185,21 +185,6 @@
   :ensure t
   :init (add-to-list 'company-backends 'company-anaconda))
 	    
-;; Nose
-(use-package nose
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook (lambda () (nose-mode t)))
-  )
-
-
-;; Matlab
-(use-package matlab-mode
-  :ensure t
-  :mode "\\.m\\'"
-  )
-
-
 ;; Indent
 (use-package dtrt-indent
   :ensure t
