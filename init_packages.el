@@ -213,3 +213,8 @@
   )
 
 
+;; VLF to read large files
+;; M-x vlf PATH-TO-FILE
+(use-package vlf
+  :ensure t
+  )
