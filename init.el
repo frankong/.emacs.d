@@ -46,7 +46,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell dtrt-indent dockerfile-mode cmake-mode django-mode pytest company-anaconda yaml-mode use-package undo-tree smartparens smart-mode-line reveal-in-osx-finder nose matlab-mode markdown-mode magit iedit helm-projectile helm-gtags flycheck-pos-tip cuda-mode company auctex anaconda-mode)))
+    (csv-mode exec-path-from-shell dtrt-indent dockerfile-mode cmake-mode django-mode pytest company-anaconda yaml-mode use-package undo-tree smartparens smart-mode-line reveal-in-osx-finder nose matlab-mode markdown-mode magit iedit helm-projectile helm-gtags flycheck-pos-tip cuda-mode company auctex anaconda-mode)))
  '(preview-gs-options
    (quote
     ("-q" "-dNOPAUSE" "-DNOPLATFONTS" "-dPrinted" "-dTextAlphaBits=4" "-dGraphicsAlphaBits=4"))))

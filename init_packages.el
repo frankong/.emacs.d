@@ -205,3 +205,11 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
   )
+
+;; CSV
+(use-package csv-mode
+  :ensure t
+  :mode ("\\.csv\\'" "\\.tsv\\'")
+  )
+
+
