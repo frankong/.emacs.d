@@ -210,6 +210,8 @@
 (use-package csv-mode
   :ensure t
   :mode ("\\.csv\\'" "\\.tsv\\'")
+  :hook
+  (csv-mode . (lambda () (csv-align-mode t)))
   )
 
 
