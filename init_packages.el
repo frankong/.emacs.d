@@ -130,6 +130,7 @@
   (setq projectile-enable-caching t)
   (setq projectile-require-project-root nil)
   (projectile-mode 1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   )
 
 (use-package helm-projectile
