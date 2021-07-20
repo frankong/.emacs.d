@@ -220,3 +220,9 @@
 (use-package vlf
   :ensure t
   )
+
+
+;; PHP mode
+(use-package php-mode
+  :ensure t
+  )
