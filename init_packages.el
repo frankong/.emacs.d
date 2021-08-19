@@ -19,6 +19,7 @@
   :ensure t
   :config
   (global-company-mode t)
+  (setq company-idle-delay 0)
   )
 
 ;; Git repo integration
@@ -130,6 +131,7 @@
   (setq projectile-enable-caching t)
   (setq projectile-require-project-root nil)
   (projectile-mode 1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   )
 
 (use-package helm-projectile
@@ -175,7 +177,6 @@
 (use-package anaconda-mode
   :ensure t
   :commands anaconda-mode
-  :diminish anaconda-mode
   :init
   (progn
     (add-hook 'python-mode-hook 'anaconda-mode)
@@ -214,13 +215,11 @@
   (csv-mode . (lambda () (csv-align-mode t)))
   )
 
-
 ;; VLF to read large files
 ;; M-x vlf PATH-TO-FILE
 (use-package vlf
   :ensure t
   )
-
 
 ;; PHP mode
 (use-package php-mode
