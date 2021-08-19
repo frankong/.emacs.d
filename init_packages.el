@@ -173,7 +173,7 @@
   :mode "\\.md\\'"
   )
 
-;; Anaconda
+;; Anaconda, provides Python autocomplete and definition
 (use-package anaconda-mode
   :ensure t
   :commands anaconda-mode
