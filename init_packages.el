@@ -100,6 +100,7 @@
   :ensure t
   :config
   (global-flycheck-mode 1)
+  (setq-default flycheck-disabled-checkers '(python-pylint))
   )
 
 ;; Flycheck popup
