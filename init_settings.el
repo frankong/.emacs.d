@@ -28,6 +28,9 @@
 ;; Auto refresh files
 (global-auto-revert-mode t)
 
+;; Auto refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+
 (setq-default TeX-master nil) ; Query for master file.
 
 ;; Smooth scroll

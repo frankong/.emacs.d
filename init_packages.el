@@ -100,6 +100,7 @@
   :ensure t
   :config
   (global-flycheck-mode 1)
+  (setq-default flycheck-disabled-checkers '(python-pylint))
   )
 
 ;; Flycheck popup
@@ -172,11 +173,10 @@
   :mode "\\.md\\'"
   )
 
-;; Anaconda
+;; Anaconda, provides Python autocomplete and definition
 (use-package anaconda-mode
   :ensure t
   :commands anaconda-mode
-  :diminish anaconda-mode
   :init
   (progn
     (add-hook 'python-mode-hook 'anaconda-mode)
@@ -205,4 +205,23 @@
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
+  )
+
+;; CSV
+(use-package csv-mode
+  :ensure t
+  :mode ("\\.csv\\'" "\\.tsv\\'")
+  :hook
+  (csv-mode . (lambda () (csv-align-mode t)))
+  )
+
+;; VLF to read large files
+;; M-x vlf PATH-TO-FILE
+(use-package vlf
+  :ensure t
+  )
+
+;; PHP mode
+(use-package php-mode
+  :ensure t
   )
