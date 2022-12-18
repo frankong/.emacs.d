@@ -207,14 +207,6 @@
     (exec-path-from-shell-initialize))
   )
 
-;; CSV
-(use-package csv-mode
-  :ensure t
-  :mode ("\\.csv\\'" "\\.tsv\\'")
-  :hook
-  (csv-mode . (lambda () (csv-align-mode t)))
-  )
-
 ;; VLF to read large files
 ;; M-x vlf PATH-TO-FILE
 (use-package vlf
