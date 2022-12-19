@@ -52,7 +52,6 @@
   :diminish helm-mode
   :init
   (progn
-    (require 'helm-config)
     (setq helm-candidate-number-limit 100
 	  helm-split-window-in-side-p t
 	  helm-ff-file-name-history-use-recentf t
