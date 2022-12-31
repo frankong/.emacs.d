@@ -38,6 +38,7 @@
   :config 
   (global-undo-tree-mode t)
   (setq undo-tree-visualizer-timestamps t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   :bind (
 	 ("C-_" . undo-tree-undo)
 	 ("M-_" . undo-tree-redo)
