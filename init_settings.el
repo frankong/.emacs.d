@@ -65,3 +65,15 @@
 ;; mac switch meta key
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
+
+;; macOS clipboard integration for terminal Emacs
+(unless (display-graphic-p)
+  (setq interprogram-cut-function
+        (lambda (text &optional push)
+          (let ((process-connection-type nil))
+            (let ((proc (start-process "pbcopy" nil "pbcopy")))
+              (process-send-string proc text)
+              (process-send-eof proc)))))
+  (setq interprogram-paste-function
+        (lambda ()
+          (shell-command-to-string "pbpaste"))))
