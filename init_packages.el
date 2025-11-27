@@ -47,6 +47,7 @@
 	 )
   )
 
+
 ;; Replace emacs buffer with Helm version
 (use-package helm
   :ensure t
@@ -57,6 +58,7 @@
 	  helm-split-window-in-side-p t
 	  helm-ff-file-name-history-use-recentf t
 	  helm-minibuffer-history 100
+	  helm-move-to-line-cycle-in-source nil
 	  )
     (helm-mode 1))
   :bind (
@@ -244,3 +246,9 @@
   ;; Optionally define a repeat map so that "M" will cycle thru Claude auto-accept/plan/confirm modes after invoking claude-code-cycle-mode / C-c M.
   :bind
   (:repeat-map my-claude-code-map ("M" . claude-code-cycle-mode)))
+
+
+;; Typescript mode
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.tsx\\'")
