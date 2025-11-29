@@ -229,9 +229,6 @@
 (use-package inheritenv
   :vc (:url "https://github.com/purcell/inheritenv" :rev :newest))
 
-;; for eat terminal backend:
-(use-package eat :ensure t)
-
 ;; install claude-code.el
 (use-package claude-code :ensure t
   :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
@@ -251,4 +248,11 @@
 ;; Typescript mode
 (use-package typescript-mode
   :ensure t
-  :mode "\\.tsx\\'")
+  :mode ("\\.tsx\\'" "\\.ts\\'"))
+
+;; Eglot - LSP client for intelligent code navigation
+;; M-. to go to definition, M-, to go back
+(use-package eglot
+  :ensure t
+  :hook ((typescript-mode . eglot-ensure)
+         (js-mode . eglot-ensure)))

@@ -8,3 +8,8 @@ To install, clone this repo to `~/.emacs.d`, i.e. ensure that the
 
 ```
 git clone https://github.com/frankong/.emacs.d.git ~/.emacs.d
+
+
+```
+npm install -g typescript-language-server typescript 
+```
