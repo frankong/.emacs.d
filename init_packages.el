@@ -73,7 +73,7 @@
 	 )
   )
 
-;; Use Helm with gtags
+;; Use Helm with gtags for C/C++
 ;; M-. on variable to go to function
 ;; M-, to go back
 (use-package helm-gtags
@@ -81,14 +81,12 @@
   :init
   (setq helm-gtags-ignore-case t
 	helm-gtags-auto-update t
-	helm-gtags-use-input-at-cursor t
-	)
-  :config
-  (helm-gtags-mode t)
-  :bind
-  ("M-." . helm-gtags-dwim)
-  ("M-," . helm-gtags-pop-stack)
-  )
+	helm-gtags-use-input-at-cursor t)
+  :hook ((c-mode . helm-gtags-mode)
+         (c++-mode . helm-gtags-mode))
+  :bind (:map helm-gtags-mode-map
+         ("M-." . helm-gtags-dwim)
+         ("M-," . helm-gtags-pop-stack)))
 
 ;; Auto close parenthesis
 (use-package smartparens
@@ -141,6 +139,15 @@
   :config
   (helm-projectile-on)
   )
+
+;; Use ripgrep for fast project-wide search
+;; C-c p s r to search
+(use-package helm-rg
+  :ensure t
+  :after (helm projectile)
+  :bind (:map projectile-mode-map
+         ("C-c p s r" . helm-rg)
+         ("C-c p s g" . helm-rg)))  ;; Override default grep binding
 
 ;; Require Auctex
 (use-package auctex
@@ -248,7 +255,9 @@
 ;; Typescript mode
 (use-package typescript-mode
   :ensure t
-  :mode ("\\.tsx\\'" "\\.ts\\'"))
+  :mode ("\\.tsx\\'" "\\.ts\\'")
+  :config
+  (setq typescript-indent-level 2))
 
 ;; Eglot - LSP client for intelligent code navigation
 ;; M-. to go to definition, M-, to go back
@@ -256,3 +265,7 @@
   :ensure t
   :hook ((typescript-mode . eglot-ensure)
          (js-mode . eglot-ensure)))
+
+(use-package jinja2-mode
+  :ensure t
+  )
