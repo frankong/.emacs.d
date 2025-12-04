@@ -50,7 +50,7 @@
  '(package-selected-packages
    '(auctex claude-code company-anaconda cuda-mode dtrt-indent
 	    exec-path-from-shell flycheck-pos-tip helm-config
-	    helm-gtags helm-projectile iedit inheritenv magit
+	    helm-gtags helm-projectile helm-rg iedit inheritenv magit
 	    markdown-mode monet php-mode reveal-in-osx-finder
 	    smart-mode-line smartparens typescript-mode undo-tree vlf
 	    vterm yaml-mode))
