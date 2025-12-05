@@ -10,6 +10,9 @@
   kept-old-versions 5    ; and how many of the old
   )
 
+;; Disable lock files to prevent triggering file watchers (e.g., FastAPI hot reload)
+(setq create-lockfiles nil)
+
 ;; Switch buffer
 (global-set-key (kbd "C-x o") 'other-window)
 (global-set-key (kbd "C-x C-o") 'other-window)
