@@ -26,9 +26,30 @@
   :ensure t
   :defer t
   :config
-  :bind 
+  (setq magit-list-refs-sortby "-creatordate")
+  (defun my/magit-refresh-detached ()
+    "Fetch and re-checkout the remote branch at detached HEAD."
+    (interactive)
+    (let* ((branches (magit-git-lines "branch" "-r" "--contains" "HEAD"))
+           (branch (car (cl-remove-if
+                         (lambda (b) (string-match-p "HEAD" b))
+                         (mapcar #'string-trim branches)))))
+      (if branch
+          (progn
+            (magit-fetch-all (magit-fetch-arguments))
+            (magit-checkout branch)
+            (message "Checked out %s" branch))
+        (user-error "HEAD doesn't match any remote branch"))))
+  ;; Auto-fetch every 30 seconds when idle
+  (run-with-idle-timer 30 t
+    (lambda ()
+      (when (magit-toplevel)
+        (magit-fetch-all (magit-fetch-arguments)))))
+  :bind
   ("C-c g" . magit-status)
   ("C-c C-g" . magit-status)
+  ("C-c r" . my/magit-refresh-detached)
+  ("C-c C-r" . my/magit-refresh-detached)
   )
 
 ;; Undo and redo in the natural way
@@ -95,12 +116,13 @@
   (smartparens-mode t)
 )
 
-;; Check code syntax 
+;; Check code syntax
 (use-package flycheck
   :ensure t
   :config
   (global-flycheck-mode 1)
   (setq-default flycheck-disabled-checkers '(python-pylint))
+  (setq flycheck-python-mypy-cache-dir "/tmp/emacs-mypy-cache")
   )
 
 ;; Flycheck popup
@@ -128,7 +150,8 @@
 (use-package projectile
   :ensure t
   :config
-  (setq projectile-enable-caching t)
+  (setq projectile-enable-caching nil)
+  (setq projectile-indexing-method 'hybrid)
   (setq projectile-require-project-root nil)
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -145,6 +168,8 @@
 (use-package helm-rg
   :ensure t
   :after (helm projectile)
+  :config
+  (setq helm-rg-default-directory 'git-root)
   :bind (:map projectile-mode-map
          ("C-c p s r" . helm-rg)
          ("C-c p s g" . helm-rg)))  ;; Override default grep binding
